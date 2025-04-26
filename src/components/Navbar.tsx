@@ -9,7 +9,7 @@ import { Button } from './ui/button'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { MenuIcon } from 'lucide-react'
-import { NavbarSidebar } from './ui/NavbarSidebar'
+import { NavbarSidebar } from './NavbarSidebar'
 
 const poppins = Poppins({
   subsets: ['latin'],

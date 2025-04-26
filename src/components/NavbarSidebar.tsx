@@ -1,6 +1,6 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 
-import { ScrollArea } from './scroll-area'
+import { ScrollArea } from './ui/scroll-area'
 import Link from 'next/link'
 
 interface NavbarItem {
