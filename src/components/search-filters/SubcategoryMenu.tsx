@@ -27,15 +27,21 @@ const SubcategoryMenu = ({ category, isOpen, position }: Props) => {
         className="w-60 text-black rounded-md overflow-hidden border shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -translate-x-[2px] -translate-y-[2px]"
       >
         <div className="">
-          {category.subcategories.docs?.map((subcategory) => (
-            <Link
-              key={subcategory.slug}
-              href={'/'}
-              className="w-full text-left p-4 hover:bg-black hover:text-white flex justify-between items-center underline font-medium"
-            >
-              {subcategory.name}
-            </Link>
-          ))}
+          {category.subcategories.docs?.map((subcategory) => {
+            if (typeof subcategory === 'string') {
+              return null
+            }
+
+            return (
+              <Link
+                key={subcategory.slug}
+                href={'/'}
+                className="w-full text-left p-4 hover:bg-black hover:text-white flex justify-between items-center underline font-medium"
+              >
+                {subcategory.name}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </div>
