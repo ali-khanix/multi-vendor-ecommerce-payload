@@ -66,7 +66,7 @@ const Navbar = () => {
   return (
     <nav className="h-20 flex border-b justify-between bg-white font-medium ">
       <Link className="flex items-center pl-6" href={'/'}>
-        <span className={cn('text-5xl font-semibold', poppins.className)}>funroard</span>
+        <span className={cn('text-5xl font-semibold', poppins.className)}>funroad</span>
       </Link>
 
       <NavbarSidebar items={navbarItems} open={isSidebarOpen} onOpenChange={setIsSidebarOpen} />
