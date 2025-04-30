@@ -1,8 +1,8 @@
-import { Category } from '@/payload-types'
+import { CustomCategory } from '@/app/(frontend)/(home)/types'
 import Link from 'next/link'
 
 interface Props {
-  category: Category
+  category: CustomCategory
   isOpen: boolean
   position: { top: number; left: number }
 }
@@ -16,7 +16,7 @@ const SubcategoryMenu = ({ category, isOpen, position }: Props) => {
   //   const test = category.subcategories.docs?.map((cat) => {
   //     console.log(cat)
   //   })
-  //   console.log(test)
+  console.log(category.subcategories)
 
   return (
     <div className="fixed z-100" style={{ top: position.top, left: position.left }}>
@@ -27,7 +27,7 @@ const SubcategoryMenu = ({ category, isOpen, position }: Props) => {
         className="w-60 text-black rounded-md overflow-hidden border shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -translate-x-[2px] -translate-y-[2px]"
       >
         <div className="">
-          {category.subcategories.docs?.map((subcategory) => {
+          {category.subcategories.map((subcategory) => {
             if (typeof subcategory === 'string') {
               return null
             }
