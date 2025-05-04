@@ -1,8 +1,15 @@
 'use client'
 
-import { act, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
 import { CategoryDropdown } from './category-dropdown'
 import { CustomCategory } from '@/app/(frontend)/(home)/types'
+
+import { Button } from '../ui/button'
+import { cn } from '@/lib/utils'
+import { CategoriesSidebar } from './categories-sidbar'
+
+import { ListFilterIcon } from 'lucide-react'
 
 interface Props {
   data: CustomCategory[]
@@ -52,7 +59,14 @@ export const Categories = ({ data }: Props) => {
   }, [data.length])
   return (
     <div className="relative w-full">
-      <div className="flex flex-nowrap items-center">
+      {/* Categoirs Sidebar */}
+      <CategoriesSidebar data={data} open={isSidebarOpen} onOpenChange={setIsSidebarOpen} />
+      {/* Hidden items */}
+      <div
+        ref={measuerRef}
+        className="absolute opacity-0 pointer-events-none flex"
+        style={{ position: 'fixed', top: -9999, left: -9999 }}
+      >
         {data.map((category) => (
           <div key={category.id}>
             <CategoryDropdown
@@ -62,6 +76,36 @@ export const Categories = ({ data }: Props) => {
             />
           </div>
         ))}
+      </div>
+
+      {/* Visible Items */}
+      <div
+        ref={containerRef}
+        onMouseEnter={() => setIsAnyHovered(true)}
+        onMouseLeave={() => setIsAnyHovered(false)}
+        className="flex flex-nowrap items-center"
+      >
+        {data.slice(0, visibleCount).map((category) => (
+          <div key={category.id}>
+            <CategoryDropdown
+              category={category}
+              isActive={activeCategory === category.slug}
+              isNavigationHovered={isAnyHovered}
+            />
+          </div>
+        ))}
+
+        <div ref={viewAllRef} className="shrink-0">
+          <Button
+            onClick={() => setIsSidebarOpen(true)}
+            className={cn(
+              'h-11 px-4 bg-transparent border-transparent rounded-full hover:bg-white hover:border-primary text-black',
+            )}
+          >
+            View All
+            <ListFilterIcon className="ml-2" />
+          </Button>
+        </div>
       </div>
     </div>
   )
