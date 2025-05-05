@@ -49,7 +49,12 @@
     "@radix-ui/react-toggle-group": "^1.1.7",
     "@radix-ui/react-tooltip": "^1.2.4",
     "@tailwindcss/postcss": "^4.1.4",
+    "@tanstack/react-query": "^5.75.2",
+    "@trpc/client": "^11.1.2",
+    "@trpc/server": "^11.1.2",
+    "@trpc/tanstack-react-query": "^11.1.2",
     "class-variance-authority": "^0.7.1",
+    "client-only": "^0.0.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "cross-env": "^7.0.3",
@@ -66,10 +71,13 @@
     "react-hook-form": "^7.56.1",
     "react-resizable-panels": "^2.1.9",
     "recharts": "^2.15.3",
+    "server-only": "^0.0.1",
     "sharp": "0.32.6",
     "slugify": "^1.6.6",
+    "superjson": "^2.2.2",
     "tailwind-merge": "^3.2.0",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.4",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
